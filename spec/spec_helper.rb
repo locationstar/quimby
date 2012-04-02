@@ -1,8 +1,9 @@
+require 'simplecov'
+SimpleCov.start
 require 'rubygems'
 require 'bundler/setup'
 require 'rspec'
-require 'quimby' 
-
+require 'quimby'
 RSpec.configure do |config|
 end
 

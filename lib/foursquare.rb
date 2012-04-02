@@ -5,7 +5,7 @@ require "typhoeus"
 require "json"
 require "cgi"
 require "foursquare/base"
-require "foursquare/category" 
+require "foursquare/category"
 require "foursquare/checkin_proxy"
 require "foursquare/checkin"
 require "foursquare/user_proxy"
@@ -21,7 +21,7 @@ require "foursquare/tip"
 require "foursquare/tip_proxy"
 require "foursquare/photo"
 require "foursquare/photo_proxy"
-require "foursquare/location"             
+require "foursquare/location"
 require "foursquare/list"
 require "foursquare/list_item"
 require "foursquare/list_proxy"
@@ -29,9 +29,9 @@ require "foursquare/comment"
 
 
 module Foursquare
-  class Error < StandardError ; end
-  class InvalidAuth < Foursquare::Error; end
-  class ServiceUnavailable < Foursquare::Error; end
+  class Error < StandardError ; end # Base Error for library
+  class InvalidAuth < Foursquare::Error; end # Error to use when authentication fails
+  class ServiceUnavailable < Foursquare::Error; end # Error when the Foursquare service is unavailable
 
   def self.verbose=(setting)
     @verbose = setting
