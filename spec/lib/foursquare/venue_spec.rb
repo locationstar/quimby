@@ -3,31 +3,31 @@ require 'spec_helper'
 describe Foursquare::Venue do
   
   before(:each) do
-    foursquare.stub(:get).with("venues/4ab7e57cf964a5205f7b20e3").and_return(JSON.parse(get_file("spec/fixtures/venues/foursquarehq.json")))
+    allow(foursquare).to receive(:get).with("venues/4ab7e57cf964a5205f7b20e3").and_return(JSON.parse(get_file("spec/fixtures/venues/foursquarehq.json")))
     @foursquarehq = foursquare.venues.find('4ab7e57cf964a5205f7b20e3')
     
     # without categories
-    foursquare.stub(:get).with("venues/4d8642e540a7a35d028831be").and_return(JSON.parse(get_file("spec/fixtures/venues/khloe.json")))
+    allow(foursquare).to receive(:get).with("venues/4d8642e540a7a35d028831be").and_return(JSON.parse(get_file("spec/fixtures/venues/khloe.json")))
     @khloe = foursquare.venues.find('4d8642e540a7a35d028831be')
   end
   
   describe "Atomical Attributes" do 
 
     it "should get an id" do
-      @foursquarehq.id.should eql("4ab7e57cf964a5205f7b20e3")
-      @khloe.id.should eql("4d8642e540a7a35d028831be")
+      expect(@foursquarehq.id).to eql("4ab7e57cf964a5205f7b20e3")
+      expect(@khloe.id).to eql("4d8642e540a7a35d028831be")
     end
     
     it "should get a name" do
-      @foursquarehq.name.should eql("foursquare HQ")
+      expect(@foursquarehq.name).to eql("foursquare HQ")
     end
     
     it "should get a twitter handle" do
-      @foursquarehq.twitter.should eql('foursquare')
+      expect(@foursquarehq.twitter).to eql('foursquare')
     end
     
     it "should get a location" do
-      @foursquarehq.location.should_not be_false
+      expect(@foursquarehq.location).not_to be_falsey
     end
     
     it "should get a category" do
@@ -35,23 +35,23 @@ describe Foursquare::Venue do
     end
     
     it "should be verified" do
-      @foursquarehq.verified?.should be_true
+      expect(@foursquarehq.verified?).to be_truthy
     end
     
     it "should have an icon" do
-      @foursquarehq.icon.url.should eql("https://foursquare.com/img/categories/building/default_32.png")
+      expect(@foursquarehq.icon.url).to eql("https://foursquare.com/img/categories/building/default_32.png")
     end
     
     it "should have a default icon" do
-      @khloe.icon.url.should eql("https://foursquare.com/img/categories/none_32.png")
+      expect(@khloe.icon.url).to eql("https://foursquare.com/img/categories/none_32.png")
     end
     
     it "should have 273 photos" do
-      @foursquarehq.photos_count.should eql(273)
+      expect(@foursquarehq.photos_count).to eql(273)
     end
     
     it "shoud have all the photos" do
-      @foursquarehq.photos.count.should eql(6)
+      expect(@foursquarehq.photos.count).to eql(6)
     end
     
     it "should have tips" do

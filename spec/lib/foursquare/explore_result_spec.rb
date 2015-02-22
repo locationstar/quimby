@@ -10,27 +10,27 @@ describe Foursquare::ExploreResult do
   describe "Explore result" do
     
     it "should have keywords" do
-      @result.keywords.should_not be_blank
+      expect(@result.keywords).not_to be_blank
     end
     
     it "should have 30 keywords" do
-      @result.keywords.count.should eql(30)
+      expect(@result.keywords.count).to eql(30)
     end
     
     it "should have groups" do
-      @result.groups.should_not be_blank
+      expect(@result.groups).not_to be_blank
     end
     
     it "should have a recommended group" do
-      @result.groups['recommended'].should_not be_blank
+      expect(@result.groups['recommended']).not_to be_blank
     end
     
     it "should have only a recommended group" do
-      @result.groups.keys.should eql(["recommended"])
+      expect(@result.groups.keys).to eql(["recommended"])
     end
     
     it "should have a recommended group that has items" do
-      @result.groups['recommended']['items'].should_not be_blank
+      expect(@result.groups['recommended']['items']).not_to be_blank
     end
     
   end

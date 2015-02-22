@@ -2,47 +2,47 @@ require 'spec_helper'
 
 describe Foursquare, "::ERRORS" do
 	it 'should have a message for a required parameter missing' do
-		Foursquare::ERRORS.should have_key('param_error')
+		expect(Foursquare::ERRORS).to have_key('param_error')
 	end
 
 	it 'should have a message for invalid authorization' do
-		Foursquare::ERRORS.should have_key('invalid_auth')
+		expect(Foursquare::ERRORS).to have_key('invalid_auth')
 	end
 
 	it 'should have a message for a user not being authorized' do
-		Foursquare::ERRORS.should have_key('not_authorized')
+		expect(Foursquare::ERRORS).to have_key('not_authorized')
 	end
 
 	it 'should have a message for exceeding a rate limit' do
-		Foursquare::ERRORS.should have_key('rate_limit_exceeded')
+		expect(Foursquare::ERRORS).to have_key('rate_limit_exceeded')
 	end
 
 	it 'should have a message for an invalid authorization error' do
-		Foursquare::ERRORS.should have_key('deprecated')
+		expect(Foursquare::ERRORS).to have_key('deprecated')
 	end
 
 	it 'should have a message for a server error' do
-		Foursquare::ERRORS.should have_key('server_error')
+		expect(Foursquare::ERRORS).to have_key('server_error')
 	end
 
 	it 'should have a message for an unknown error' do
-		Foursquare::ERRORS.should have_key('other')
+		expect(Foursquare::ERRORS).to have_key('other')
 	end
 
 end
 
 describe Foursquare, "::verbose*" do
   it "should describe and set the verbose setting" do
-    Foursquare::verbose?.should be_nil
+    expect(Foursquare::verbose?).to be_nil
     Foursquare::verbose=true
-    Foursquare::verbose?.should be_true
+    expect(Foursquare::verbose?).to be_truthy
   end
 end
 
 describe Foursquare, "::log" do
 	it 'should not output anything if verbose is not defined' do
     Foursquare::verbose=false
-    Kernel.should_not_receive(:puts)
+    expect(Kernel).not_to receive(:puts)
     Foursquare::log("Log Message")
 	end
 

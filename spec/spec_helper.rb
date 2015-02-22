@@ -17,7 +17,7 @@ end
 
 def current_user
   return @current_user if @current_user
-  foursquare.stub(:get).with("users/self").and_return(JSON.parse(get_file("spec/fixtures/users/self.json")))
+  allow(foursquare).to receive(:get).with("users/self").and_return(JSON.parse(get_file("spec/fixtures/users/self.json")))
   foursquare.users.find "self"
 end
 

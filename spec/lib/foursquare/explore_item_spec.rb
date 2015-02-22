@@ -11,27 +11,27 @@ describe Foursquare::ExploreItem do
   describe "Explore result" do
     
     it "should have reasons" do
-      @item.reasons.should_not be_blank
+      expect(@item.reasons).not_to be_blank
     end
     
     it "should have a good reason" do
-      @item.reasons.first['message'].should eql('A lot of people talk about this place')
+      expect(@item.reasons.first['message']).to eql('A lot of people talk about this place')
     end
     
     it "should have a venue" do
-      @item.venue.should_not be_blank
+      expect(@item.venue).not_to be_blank
     end
     
     it "should have a correct venue" do
-      @item.venue.name.should eql("Grimaldi's Pizzeria")
+      expect(@item.venue.name).to eql("Grimaldi's Pizzeria")
     end
     
     it "should have tips" do
-      @item.tips.should_not be_blank
+      expect(@item.tips).not_to be_blank
     end
     
     it "should have a correct tip" do
-      @item.tips.first.id.should eql("4c62b64eedb29c74df3a2ca7")
+      expect(@item.tips.first.id).to eql("4c62b64eedb29c74df3a2ca7")
     end
     
   end
