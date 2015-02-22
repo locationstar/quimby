@@ -59,6 +59,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<pry>, [">= 0"])
       s.add_development_dependency(%q<pry-remote>, [">= 0"])
       s.add_development_dependency(%q<pry-nav>, [">= 0"])
+      s.add_development_dependency("transpec")
     else
       s.add_dependency(%q<typhoeus>, [">= 0"])
       s.add_dependency(%q<json>, [">= 0"])
@@ -72,6 +73,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<pry>, [">= 0"])
       s.add_development_dependency(%q<pry-remote>, [">= 0"])
       s.add_development_dependency(%q<pry-nav>, [">= 0"])
+      s.add_development_dependency("transpec")
     end
   else
     s.add_dependency(%q<typhoeus>, [">= 0"])
@@ -86,5 +88,6 @@ Gem::Specification.new do |s|
     s.add_development_dependency(%q<pry>, [">= 0"])
     s.add_development_dependency(%q<pry-remote>, [">= 0"])
     s.add_development_dependency(%q<pry-nav>, [">= 0"])
+    s.add_development_dependency("transpec")
   end
 end

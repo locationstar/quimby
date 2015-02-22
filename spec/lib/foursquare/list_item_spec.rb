@@ -15,7 +15,7 @@ describe Foursquare::ListItem do
     end
     
     it "should have a tip?" do
-      @item.tip?.should be_true
+      expect(@item.tip?).to be_true
     end
     
     it "should have a tip text" do
