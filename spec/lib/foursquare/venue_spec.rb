@@ -53,19 +53,6 @@ describe Foursquare::Venue do
     it "shoud have all the photos" do
       expect(@foursquarehq.photos.count).to eql(6)
     end
-    
-    it "should have tips" do
-      pending
-    end
-    
-    it "should have here_now count" do
-      pending
-    end
-    
-    it "should have here_now checkins" do
-      pending
-    end
-    
   end
   
   describe "Composed Attributes" do
